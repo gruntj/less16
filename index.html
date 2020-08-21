@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+
+<h1>текущее время по киеву</h1>
+
+<div id="clock">
+	<img class="clock-img" src="img/clock.png">
+	<div>
+		
+	</div>
+	
+	<div class="arrowHour" >
+		<img src="img/arrowUp.png">
+	</div>
+	<div class="arrowMin">
+		<img  src="img/arrowDawn.png">
+	</div>
+	<div class="arrowSec">
+		<img  src="img/arrowSec.png">
+	</div>
+	
+</div>
+
+
+
+
+
+<!-- STYLE START -->
+
+<style>
+
+body{
+background: #607D8B;
+margin: 0px;
+padding: 0px;
+}
+
+h1{
+text-transform: uppercase;
+text-align: center;
+color:#fff;
+padding: 25px;
+}
+	
+#clock{
+position: relative;
+display: flex;
+flex-wrap: wrap;
+justify-content: center;
+
+}
+.clock-img{
+
+max-width:600px;
+height:auto;
+}	
+
+.arrowHour, .arrowMin, .arrowSec{
+top: 10%;
+position: absolute;
+}
+.arrowHour{
+z-index: 9;
+}
+.arrowMin{
+z-index: 12;
+}
+.arrowSec{
+z-index: 13;
+}
+
+
+
+
+</style>
+
+<!-- SCRIPT START -->
+
+<script>
+
+setInterval(function timer(){
+var day = new Date();
+// console.log(day);
+
+var deg = 6;
+// console.log(deg);
+
+var arrowHour = document.querySelector(".arrowHour");
+var arrowMin =  document.querySelector(".arrowMin");
+var arrowSec = document.querySelector(".arrowSec");
+
+// console.log(arrowHour);
+// console.log(arrowSec);
+// console.log(arrowMin);
+
+
+// console.log(day);
+var hour = day.getHours()*30;
+var min = day.getMinutes()*deg;
+var sec = day.getSeconds()*deg;
+arrowHour.style.transform = `rotate(${(hour)+(min/12)}deg`;
+arrowMin.style.transform = `rotate(${min}deg`;
+arrowSec.style.transform = `rotate(${sec}deg`;
+
+	
+});
+
+
+
+
+
+
+
+</script>	
+</body>
+</html>
